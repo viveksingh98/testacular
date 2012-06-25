@@ -49,7 +49,27 @@ autoWatchInterval = 100;
 // - Firefox
 // - Opera
 // - Safari
-browsers = [];
+var BaseBrowser = require('testacular').launcher.BaseBrowser;
+
+var IE8 = function() {
+  BaseBrowser.apply(this, arguments);
+
+  this.name = 'IE8';
+  this.DEFAULT_CMD = {
+    darwin: '/Users/jenkins/bin/ie8.sh'
+  };
+};
+
+var IE9 = function() {
+  BaseBrowser.apply(this, arguments);
+
+  this.name = 'IE9';
+  this.DEFAULT_CMD = {
+    darwin: '/Users/jenkins/bin/ie9.sh'
+  };
+};
+
+browsers = ['Chrome', 'ChromeCanary', 'Safari', 'Firefox', 'Opera', IE8, IE9];
 
 // Auto run tests on start (when browsers are captured) and exit
 singleRun = false;
