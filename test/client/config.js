@@ -25,7 +25,7 @@ exclude = [];
 reporter = 'progress';
 
 // web server port
-port = 8080;
+port = 9999;
 
 // cli runner port
 runnerPort = 9100;
@@ -49,7 +49,7 @@ autoWatchInterval = 100;
 // - Firefox
 // - Opera
 // - Safari
-var BaseBrowser = require('testacular').launcher.BaseBrowser;
+var BaseBrowser = require('./index').launcher.BaseBrowser;
 
 var IE8 = function() {
   BaseBrowser.apply(this, arguments);
@@ -72,4 +72,5 @@ var IE9 = function() {
 browsers = ['Chrome', 'ChromeCanary', 'Safari', 'Firefox', 'Opera', IE8, IE9];
 
 // Auto run tests on start (when browsers are captured) and exit
-singleRun = false;
+singleRun = true;
+
